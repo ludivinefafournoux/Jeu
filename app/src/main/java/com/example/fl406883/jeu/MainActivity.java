@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         // Add 2 tabs, specifying the tab’s text and TabListener
         actionBar.addTab( actionBar.newTab()
-                .setText("Paramètres du jeu")
+                .setText("Paramètres de jeu")
                 .setTabListener(this)); // this car implements tablistener
         actionBar.addTab(
                 actionBar.newTab()
