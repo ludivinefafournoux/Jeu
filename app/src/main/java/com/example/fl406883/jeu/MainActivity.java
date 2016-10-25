@@ -4,6 +4,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.larswerkman.holocolorpicker.ColorPicker;
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, NumberPickerFragment.OnActionListener {
 
@@ -32,11 +36,11 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         // Add 2 tabs, specifying the tab’s text and TabListener
         actionBar.addTab( actionBar.newTab()
-                .setText("Text")
+                .setText("Paramètres du jeu")
                 .setTabListener(this)); // this car implements tablistener
         actionBar.addTab(
                 actionBar.newTab()
-                        .setText("Num")
+                        .setText("Jeu")
                         .setTabListener(this));
 
         mViewPager.setOnPageChangeListener(
@@ -46,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                         // When swiping between pages, select the corresponding tab.
                         getSupportActionBar().setSelectedNavigationItem(position);
                     } });
+
+        ColorPicker picker = (ColorPicker) findViewById(R.id.picker);
+        //picker.getColor();
+
 
 
     }

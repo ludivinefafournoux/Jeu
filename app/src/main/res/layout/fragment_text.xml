@@ -15,36 +15,62 @@
         android:id="@+id/textView" />
 
 
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:id="@+id/imageView"
-        android:src="@drawable/rond"
-        android:layout_marginBottom="54dp"
-        android:layout_marginRight="30dp"
-        android:layout_above="@+id/occurence"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Veuillez choisir le nombre d&apos;occurences"
+        android:id="@+id/occurence"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp" />
 
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:id="@+id/imageView2"
-        android:src="@drawable/croix"
+    <NumberPicker
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/numberPicker"
+        android:layout_below="@+id/occurence"
+        android:layout_centerHorizontal="true" />
 
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignLeft="@+id/numberPicker"
-        android:layout_alignStart="@+id/numberPicker" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Veuillez séléctionner la vitesse"
+        android:id="@+id/vitesse"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/couleur"
+        android:layout_alignEnd="@+id/couleur" />
 
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:id="@+id/imageView3"
-        android:src="@drawable/fleche"
-        android:layout_marginLeft="30dp"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_alignRight="@id/seekBar1"
-         />
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:max="10"
+        android:layout_below="@+id/vitesse"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Veuillez selectionner la couleur"
+        android:id="@+id/couleur"
+        android:layout_above="@+id/picker"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.larswerkman.holocolorpicker.ColorPicker
+        android:id="@+id/picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_alignRight="@+id/occurence"
+        android:layout_alignEnd="@+id/occurence" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,49 +79,44 @@
         android:text="Veuillez choisir l&apos;image"
         android:id="@+id/choixImage"
         android:singleLine="false"
-        android:layout_marginBottom="15dp"
-        android:layout_above="@+id/imageView"
-        android:layout_alignLeft="@+id/occurence"
-        android:layout_alignStart="@+id/occurence" />
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp" />
 
-    <NumberPicker
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:id="@+id/numberPicker"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/imageView3"
+        android:src="@drawable/fleche"
+        android:clickable="true"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Veuillez choisir le nombre d&apos;occurences"
-        android:id="@+id/occurence"
-        android:layout_marginBottom="15dp"
-        android:layout_above="@+id/numberPicker"
-        android:layout_alignLeft="@+id/vitesse"
-        android:layout_alignStart="@+id/vitesse" />
+        android:layout_above="@+id/occurence"
+        android:layout_alignRight="@+id/seekBar1"
+        android:layout_alignEnd="@+id/seekBar1"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp" />
 
-    <SeekBar
-        android:id="@+id/seekBar1"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/rond"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/choixImage"
+        android:layout_alignRight="@+id/vitesse"
+        android:layout_alignEnd="@+id/vitesse"
+        android:clickable="true" />
 
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="150dp"
-        android:max="10"
-        />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/croix"
+        android:clickable="true"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Veuillez séléctionner la vitesse"
-        android:id="@+id/vitesse"
-        android:layout_marginBottom="15dp"
-        android:layout_above="@+id/seekBar1"
-        android:layout_alignRight="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2" />
+        android:layout_above="@+id/occurence"
+        android:layout_alignLeft="@+id/seekBar1"
+        android:layout_alignStart="@+id/seekBar1" />
 
 </RelativeLayout>
