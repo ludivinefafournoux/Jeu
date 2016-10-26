@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     private ViewPager mViewPager;
     private ExamplePagerAdapter mExamplePagerAdapter;
     private int mData;
+
 
 
     @Override
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         mViewPager = (ViewPager) findViewById(R.id.pager); // page d'un onglet
         mViewPager.setAdapter(mExamplePagerAdapter); // l'adapte à notre classe
+
 
 
 
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                         getSupportActionBar().setSelectedNavigationItem(position);
                     } });
 
-        ColorPicker picker = (ColorPicker) findViewById(R.id.picker);
+
         //picker.getColor();
 
 

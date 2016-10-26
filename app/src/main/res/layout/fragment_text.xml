@@ -28,7 +28,7 @@
 
     <NumberPicker
         android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_height="55dp"
         android:id="@+id/numberPicker2"
         android:layout_below="@+id/occurence"
         android:layout_alignRight="@+id/imageView3"
