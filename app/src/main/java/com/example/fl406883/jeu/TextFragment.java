@@ -29,6 +29,8 @@ public class TextFragment extends Fragment {
         return viewFragment;
     }
 
+
+
     public void changeTextNumber(int nbpicker){
 
         TextView myTextView = (TextView) viewFragment.findViewById(R.id.textView);

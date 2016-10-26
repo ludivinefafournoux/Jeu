@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
 
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         mViewPager = (ViewPager) findViewById(R.id.pager); // page d'un onglet
         mViewPager.setAdapter(mExamplePagerAdapter); // l'adapte à notre classe
+
+
 
         // Specify that tabs should be displayed in the action bar.
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -81,4 +84,9 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         mData=myNumber; // récupère le numberpicker
         ((TextFragment)mExamplePagerAdapter.getItem(0)).changeTextNumber(mData); // change le texte par le numberpicker
     }
+    public void onClick(View v) {
+
+        Toast.makeText(MainActivity.this, "tu as cliqué sur une imageview", Toast.LENGTH_LONG).show();
+    }
+
 }
