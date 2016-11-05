@@ -1,5 +1,6 @@
 package com.example.fl406883.jeu;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -9,16 +10,18 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.larswerkman.holocolorpicker.ColorPicker;
+
 import java.util.Random;
 
 import static android.R.attr.bitmap;
-import static com.example.fl406883.jeu.R.id.couleur;
 import static com.example.fl406883.jeu.R.id.imageView;
 
 /**
@@ -27,10 +30,10 @@ import static com.example.fl406883.jeu.R.id.imageView;
 
 public class JeuView extends View implements View.OnTouchListener {
 
-    protected Paint paint;
-    private int vitesse = 1;
-    private  int couleur;
-    private int nombreOccurence ;
+    private Paint paint;
+    int vitesse = 1;
+    String couleur = "#FFB6C1";
+    //int nombreOccurence = 1 ;
 
     private float posX = 50;
     private float posY = 20;
@@ -38,26 +41,28 @@ public class JeuView extends View implements View.OnTouchListener {
     protected int screenWidth;
     protected int screenHeight;
 
-    public JeuView (Context context) {
-        super(context);
-        init();
-    }
+    private int i;
+
+    private Vibrator v;
+
+    ColorPicker picker;
 
     public int getVitesse() { return vitesse;}
     public void setVitesse(int unevitesse){this.vitesse = unevitesse;}
 
-    public int getCouleur() {return couleur;}
-    public void setCouleur (int uneCouleur){this.couleur = uneCouleur;}
+    public String getCouleur() {return couleur;}
+    public void setCouleur (String uneCouleur){this.couleur = uneCouleur;}
 
-    public int getNombreOccurence() {
-        return nombreOccurence;
+   /* public int getNombreOccurence() {
+      return nombreOccurence;
     }
     public void setNombreOccurence(int unNbOccurence){
-        nombreOccurence = unNbOccurence;
+        nombreOccurence = unNbOccurence; }*/
+
+    public JeuView (Context context) {
+        super(context);
+        init();
     }
-
-
-
 
     public JeuView (Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -68,12 +73,21 @@ public class JeuView extends View implements View.OnTouchListener {
     public void init() {
 
         paint = new Paint();
+
+        v = (Vibrator) this.getContext().getSystemService(Activity.VIBRATOR_SERVICE);
+
+        super.setOnTouchListener(this);
+
+        paint.setColor(Color.parseColor(couleur));
+
+
+        removeCallbacks(animator);
+
         post(animator);
 
+
         //paint.setTextSize(50);
-        paint.setColor(couleur);
-
-
+        //paint.setColor(111);
     }
 
     // creer objet dans canvas
@@ -81,7 +95,7 @@ public class JeuView extends View implements View.OnTouchListener {
     protected void onDraw(Canvas canvas) {
 
         Resources res = getResources();
-        Bitmap b = BitmapFactory.decodeResource(res, R.drawable.croix);
+        Bitmap b = BitmapFactory.decodeResource(res, R.drawable.fleche);
 
         canvas.drawBitmap(b, posX, posY, paint);
         //tempCanvas.drawText("test", 100, 50, paint);
@@ -98,7 +112,7 @@ public class JeuView extends View implements View.OnTouchListener {
             invalidate();
 
             // vitesse
-            postDelayed(this, 300);
+            postDelayed(this, vitesse+400);
         }
     };
 
@@ -117,9 +131,26 @@ public class JeuView extends View implements View.OnTouchListener {
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
 
-        if(motionEvent.getAction() == MotionEvent.ACTION_UP)
-            return true;
-        return false;
+        float x = motionEvent.getX();
+        float y = motionEvent.getY();
+
+        if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+
+            if (x >= posX && x <= posY  && y >= posX && y <= posY) {
+                // star wars vibration
+                v.vibrate(new long[]{0, 500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500}, -1);
+                return true;
+
+            }
+            else {
+                return false;
+            }
+
+        }
+        else {
+            return false;
+        }
+
     }
 
     // obtenir dimension vue
@@ -131,3 +162,4 @@ public class JeuView extends View implements View.OnTouchListener {
         screenHeight = getHeight();
     }
 }
+

@@ -1,10 +1,5 @@
 package com.example.fl406883.jeu;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +8,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.widget.ImageView;
+import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-import static com.example.fl406883.jeu.R.id.image;
 import static com.example.fl406883.jeu.R.id.imageView;
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, ParametresFragment.OnActionListener {
@@ -32,8 +27,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final ActionBar actionBar = getSupportActionBar(); // barre d'onglets
-
-
 
         mExamplePagerAdapter = new ExamplePagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager); // page d'un onglet
@@ -58,7 +51,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                         // When swiping between pages, select the corresponding tab.
                         getSupportActionBar().setSelectedNavigationItem(position);
                     } });
+
     }
+
+
 
     // méthodes de TabListener obligatoires (même si on ne mets rien dedans)
     @Override
@@ -81,13 +77,11 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     }
 
+    /*public void onClick(View v) {
 
-    public void onClick(View v) {
+        img = (ImageView) findViewById(R.id.imageView);
 
-        Toast.makeText(MainActivity.this, "You clicked on", Toast.LENGTH_LONG).show();
-        Bitmap b = BitmapFactory.decodeResource(getResources(),   R.drawable.croix);
+        //Toast.makeText(MainActivity.this, "You clicked on", Toast.LENGTH_LONG).show();
 
-    }
-
-
+    }*/
 }

@@ -36,24 +36,7 @@ public class JeuFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_jeu, container, false);
 
         preferences = getActivity().getSharedPreferences(MesPreferences, Context.MODE_PRIVATE);
-        JeuView jeu = (JeuView) view.findViewById(R.id.jeuView);
-
-
-
-        /*final NumberPicker nbpicker = (NumberPicker) viewFragment.findViewById(R.id.numberPicker); // récupération de l'id du numberpicker
-
-        nbpicker.setMaxValue(10); // valeur max du numberpicker
-        nbpicker.setMinValue(0); // valeur min du numberpicker
-
-        nbpicker.setValue(0); // valeur par défaut du numberpicker
-
-        nbpicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                mListener.onAction(newVal);
-            }
-        });*/
-
+        jeu = (JeuView) view.findViewById(R.id.jeuView);
 
         return view;
     }
@@ -66,9 +49,9 @@ public class JeuFragment extends Fragment {
         if (this.isVisible()) {
             // If we are becoming invisible, then...
             if (isVisibleToUser) {
-                jeu.setNombreOccurence(preferences.getInt("nbPoint", 1));
+                //jeu.setNombreOccurence(preferences.getInt("nbPicker", 1));
                 jeu.setVitesse(preferences.getInt("nbPicker", 1));
-                jeu.setCouleur(preferences.getInt("Couleur", 1));
+               // jeu.setCouleur(preferences.getString("Couleur", "#FFB6C1"));
                 jeu.init();
             }
         }
