@@ -47,6 +47,8 @@ public class TextFragment extends Fragment {
         numberpick.setMaxValue(15);
         numberpick.setValue(0);
 
+        picker.setShowOldCenterColor(false);
+
        // numberpick.setWrapSelectorWheel(true);
         return viewFragment;
     }
