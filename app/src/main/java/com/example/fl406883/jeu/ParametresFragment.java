@@ -114,10 +114,11 @@ public class ParametresFragment extends Fragment {
             public void onClick(View v) {
                 editeur.putInt("nbPicker", numberpick.getValue());
                 editeur.putInt("Couleur", picker.getColor());
-                //editeur.putString("Image", encodeTobase64(bitmap));
+                editeur.putInt("Image",R.id.imageView);
                 editeur.commit();
 
             }
+
             // Convertir Bitmap en base64 pour l'enregistrer dans les SharedPreferences
             private String encodeTobase64(Bitmap image) {
                 Bitmap immage = image;

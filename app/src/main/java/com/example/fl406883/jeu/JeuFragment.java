@@ -20,6 +20,7 @@ public class JeuFragment extends Fragment {
     View view;
     SharedPreferences preferences;
     SharedPreferences.Editor editeur;
+    JeuView jeu;
 
     public JeuFragment() {
         // Required empty public constructor
@@ -35,6 +36,9 @@ public class JeuFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_jeu, container, false);
 
         preferences = getActivity().getSharedPreferences(MesPreferences, Context.MODE_PRIVATE);
+        JeuView jeu = (JeuView) view.findViewById(R.id.jeuView);
+
+
 
         /*final NumberPicker nbpicker = (NumberPicker) viewFragment.findViewById(R.id.numberPicker); // récupération de l'id du numberpicker
 
@@ -50,7 +54,24 @@ public class JeuFragment extends Fragment {
             }
         });*/
 
+
         return view;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        // Make sure that we are currently visible
+        if (this.isVisible()) {
+            // If we are becoming invisible, then...
+            if (isVisibleToUser) {
+                jeu.setNombreOccurence(preferences.getInt("nbPoint", 1));
+                jeu.setVitesse(preferences.getInt("nbPicker", 1));
+                jeu.setCouleur(preferences.getInt("Couleur", 1));
+                jeu.init();
+            }
+        }
     }
 
 }

@@ -3,4 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.example.fl406883.jeu.JeuView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/jeuView"
+        android:layout_alignParentTop="true" />
+
 </RelativeLayout>
+
