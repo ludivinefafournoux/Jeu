@@ -14,19 +14,19 @@ Au début de la partie, vous pourrez selectionner le motif à afficher. Par la s
 
 Voici la liste des fonctionnalités actuelles de notre application :
 
-- Affichage des images disponibles
-- Choix de la couleur
-- Affichage du slider pour le choix de la vitesse
-- Affichage du numberPicker pour le choix d'occurence de l'image
-- Affichage des deux fragements (côté choix des éléments du jeu et côté jeu)
-- Enregistrement des choix utilisateur dans les SharedPreference
-- Affichage d'une image prédéfinie dans le JeuFragment
-- Déplacement de l'image dans l'écran 
-- Son et vibration
+- [x] Affichage des images disponibles
+- [x] Choix de la couleur
+- [x] Affichage du slider pour le choix de la vitesse
+- [x] Affichage du numberPicker pour le choix d'occurence de l'image
+- [x] Affichage des deux fragements (côté choix des éléments du jeu et côté jeu)
+- [x] Enregistrement des choix utilisateur dans les SharedPreference
+- [x] Affichage d'une image prédéfinie dans le JeuFragment
+- [x] Déplacement de l'image dans l'écran 
+- [x] Son et vibration
 
 ###Fonctionnalités supplémentaires à ajouter
 
-- Récupération de l'image, de la couleur, de l'intrus et de la vitesse pour les afficher dans le fragment jeu
-- Comparaison de l'image cliquée avec l'intrus
-- Affichage si la partie a été gagnée ou non
+- [ ] Récupération de l'image, de la couleur, de l'intrus et de la vitesse pour les afficher dans le fragment jeu
+- [ ] Comparaison de l'image cliquée avec l'intrus
+- [ ] Affichage si la partie a été gagnée ou non
 
