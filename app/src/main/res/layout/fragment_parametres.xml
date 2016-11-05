@@ -127,9 +127,8 @@
         android:layout_width="50dp"
         android:layout_height="35dp"
         android:id="@+id/valider"
-        android:layout_alignBaseline="@+id/couleur"
-        android:layout_alignBottom="@+id/couleur"
-        android:layout_alignLeft="@+id/numberPicker2"
-        android:layout_alignStart="@+id/numberPicker2" />
+        android:layout_alignTop="@+id/couleur"
+        android:layout_toRightOf="@+id/numberPicker2"
+        android:layout_toEndOf="@+id/numberPicker2" />
 
 </RelativeLayout>
