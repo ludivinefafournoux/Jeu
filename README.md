@@ -17,6 +17,7 @@ Voici la liste des fonctionnalités actuelles de notre application :
 - Affichage des images disponibles
 - Choix de la couleur
 - Affichage du slider pour le choix de la vitesse
+- Affichage du numberPicker pour le choix d'occurence de l'image
 - Affichage des deux fragements (côté choix des éléments du jeu et côté jeu)
 - Enregistrement des choix utilisateur dans les SharedPreference
 - Affichage d'une image prédéfinie dans le JeuFragment
