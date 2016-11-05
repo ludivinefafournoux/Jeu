@@ -8,16 +8,17 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  * Created by laura on 30/09/2016.
  */
 
+// gestion des onglets
 public class ExamplePagerAdapter extends FragmentStatePagerAdapter {
 
-    Fragment text;
-    Fragment picker;
+    Fragment jeu;
+    Fragment parametres;
 
     public ExamplePagerAdapter(FragmentManager fm) // constructeur
     {
         super(fm);
-        text = new TextFragment();
-        picker = new NumberPickerFragment();
+        jeu = new JeuFragment();
+        parametres = new ParametresFragment();
     }
 
     @Override
@@ -28,10 +29,10 @@ public class ExamplePagerAdapter extends FragmentStatePagerAdapter {
         switch (position) // change de classe en fonction de l'onglet
         {
             case 0:
-                fragment = text; // onglet texte
+                fragment = parametres; // onglet texte
                 break;
             case 1:
-                fragment = picker; // onglet numberpicker
+                fragment = jeu; // onglet numberpicker
                 break;
         }
 
