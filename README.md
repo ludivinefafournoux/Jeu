@@ -14,15 +14,18 @@ Au début de la partie, vous pourrez selectionner le motif à afficher. Par la s
 
 Voici la liste des fonctionnalités actuelles de notre application :
 
-- Affichage des images disponibles, à répéter
-- Choix de la couleur de l'intrus
+- Affichage des images disponibles
+- Choix de la couleur
 - Affichage du slider pour le choix de la vitesse
 - Affichage des deux fragements (côté choix des éléments du jeu et côté jeu)
+- Enregistrement des choix utilisateur dans les SharedPreference
+- Affichage d'une image prédéfinie dans le JeuFragment
+- Déplacement de l'image dans l'écran 
+- Son et vibration
 
-###Fonctionnalités supplémentaires, disponibles à la fin du developpement
+###Fonctionnalités supplémentaires à ajouter
 
 - Récupération de l'image, de la couleur, de l'intrus et de la vitesse pour les afficher dans le fragment jeu
-- Mise en mouvement des images dans le fragment de jeu
 - Comparaison de l'image cliquée avec l'intrus
 - Affichage si la partie a été gagnée ou non
-- Son et vibration lors de la fin de la partie
+
