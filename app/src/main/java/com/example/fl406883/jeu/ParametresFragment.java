@@ -24,6 +24,8 @@ import com.larswerkman.holocolorpicker.ColorPicker;
 
 import java.io.ByteArrayOutputStream;
 
+import io.realm.Realm;
+
 import static android.R.attr.bitmap;
 import static android.R.attr.value;
 import static com.example.fl406883.jeu.R.id.picker;
@@ -44,6 +46,8 @@ public class ParametresFragment extends Fragment {
     SharedPreferences preferences;
     SharedPreferences.Editor editeur;
     ColorPicker picker;
+    public static int score = 0;
+    private Realm realm;
 
     public interface OnActionListener{
         public void OnAction(int position);
@@ -79,11 +83,13 @@ public class ParametresFragment extends Fragment {
         numberpick.setMaxValue(15);
         numberpick.setValue(0);
 
-       // numberpick.setWrapSelectorWheel(true);
+        // numberpick.setWrapSelectorWheel(true);
 
         editeur = preferences.edit();
         numberpick.setValue(preferences.getInt("nbPicker", 20));
         vitesseBar.setProgress(preferences.getInt("vitesse", 0));
+
+
 
 
         vitesseBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -126,16 +132,22 @@ public class ParametresFragment extends Fragment {
                 return imageEncoded;
             }
 
+
         });
 
         final Activity act = getActivity();
+
 
         image1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(act,"Vous avez cliqué sur l'image 1", Toast.LENGTH_SHORT).show();
-                Bitmap b = BitmapFactory.decodeResource(view.getResources(), R.drawable.croix);
+                score = score+1;
+                Toast.makeText(act," score : "+score, Toast.LENGTH_SHORT).show();
+                //Bitmap b = BitmapFactory.decodeResource(view.getResources(), R.drawable.croix);
+
+
+
             }
         });
 
@@ -157,9 +169,16 @@ public class ParametresFragment extends Fragment {
             }
         });
 
+        //realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        Score score = realm.createObject(Score.class); // Create a new object
+        score.setScore(1);
 
+        realm.commitTransaction();
 
         return view;
+
+
     }
 
     /*public void changeTextNumber(int nbpicker){
@@ -168,6 +187,19 @@ public class ParametresFragment extends Fragment {
         myTextView.setText(Integer.toString(nbpicker));
 
     }*/
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        realm = Realm.getDefaultInstance();
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        realm.close();
+    }
 
     public void onAttach (Activity activity){
         super.onAttach(activity);
